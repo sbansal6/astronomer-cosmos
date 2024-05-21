@@ -302,6 +302,7 @@ def create_airflow_task_dependencies(
     :param tasks_map: Dictionary mapping dbt nodes (node.unique_id to Airflow task)
     """
     for node_id, node in nodes.items():
+        print(node_id, type(node), node)
         for parent_node_id in node.depends_on:
             # depending on the node type, it will not have mapped 1:1 to tasks_map
             if (node_id in tasks_map) and (parent_node_id in tasks_map):
