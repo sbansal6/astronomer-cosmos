@@ -305,6 +305,7 @@ def create_airflow_task_dependencies(
     """
     for node_id, node in nodes.items():
         logger.info('logging task group info')
+        logging.info('node type: %s', type(node))
         for parent_node_id in node.depends_on:
             # depending on the node type, it will not have mapped 1:1 to tasks_map
             if (node_id in tasks_map) and (parent_node_id in tasks_map):
