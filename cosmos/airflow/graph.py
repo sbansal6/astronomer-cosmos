@@ -246,6 +246,8 @@ def build_airflow_graph(
     :param on_warning_callback: A callback function called on warnings with additional Context variables “test_names”
     and “test_results” of type List.
     """
+    logger.info("I am in build_airflow_graph")
+    
     node_converters = render_config.node_converters or {}
     test_behavior = render_config.test_behavior
     tasks_map = {}
